@@ -1,6 +1,6 @@
 "use client"; // Mark the file as client-side component
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import AboutMe from "./components/AboutMe";
 import Services from "./components/Services";
@@ -11,6 +11,16 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>("about");
+  const [isShrunk, setIsShrunk] = useState<boolean>(false);
+
+  // Detect section changes to trigger header animation
+  useEffect(() => {
+    if (activeSection === "about") {
+      setIsShrunk(false);
+    } else {
+      setIsShrunk(true);
+    }
+  }, [activeSection]);
 
   const handleNavClick = (section: string) => {
     setActiveSection(section);
@@ -22,7 +32,11 @@ export default function Home() {
       <nav className="fixed top-0 left-0 w-full bg-white shadow-lg z-50">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+            <h1
+              className={`text-2xl font-bold text-gray-800 dark:text-white transition-all duration-500 ease-in-out ${
+                isShrunk ? "text-xl absolute top-4 left-4" : "text-3xl"
+              }`}
+            >
               Hibir Systems
             </h1>
             <ul className="flex space-x-6">
@@ -30,7 +44,9 @@ export default function Home() {
                 <a
                   href="#about"
                   onClick={() => handleNavClick("about")}
-                  className={`text-lg font-medium ${activeSection === "about" ? "text-green-600" : "text-gray-600"} hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
+                  className={`text-lg font-medium ${
+                    activeSection === "about" ? "text-green-600" : "text-gray-600"
+                  } hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
                 >
                   About Me
                 </a>
@@ -39,7 +55,9 @@ export default function Home() {
                 <a
                   href="#services"
                   onClick={() => handleNavClick("services")}
-                  className={`text-lg font-medium ${activeSection === "services" ? "text-green-600" : "text-gray-600"} hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
+                  className={`text-lg font-medium ${
+                    activeSection === "services" ? "text-green-600" : "text-gray-600"
+                  } hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
                 >
                   Services
                 </a>
@@ -48,7 +66,9 @@ export default function Home() {
                 <a
                   href="#technologies"
                   onClick={() => handleNavClick("technologies")}
-                  className={`text-lg font-medium ${activeSection === "technologies" ? "text-green-600" : "text-gray-600"} hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
+                  className={`text-lg font-medium ${
+                    activeSection === "technologies" ? "text-green-600" : "text-gray-600"
+                  } hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
                 >
                   Technologies
                 </a>
@@ -57,7 +77,9 @@ export default function Home() {
                 <a
                   href="#app"
                   onClick={() => handleNavClick("app")}
-                  className={`text-lg font-medium ${activeSection === "app" ? "text-green-600" : "text-gray-600"} hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
+                  className={`text-lg font-medium ${
+                    activeSection === "app" ? "text-green-600" : "text-gray-600"
+                  } hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
                 >
                   Hibir Medicos
                 </a>
@@ -66,7 +88,9 @@ export default function Home() {
                 <a
                   href="#contact"
                   onClick={() => handleNavClick("contact")}
-                  className={`text-lg font-medium ${activeSection === "contact" ? "text-green-600" : "text-gray-600"} hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
+                  className={`text-lg font-medium ${
+                    activeSection === "contact" ? "text-green-600" : "text-gray-600"
+                  } hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
                 >
                   Contact
                 </a>
@@ -78,8 +102,9 @@ export default function Home() {
 
       {/* Content */}
       <div className="pt-24">
-        <Header />
-        <main className="flex flex-col gap-8 text-center sm:text-left">
+        {/* Conditional rendering of header size */}
+        <Header isShrunk={isShrunk} />
+        <main className="flex flex-col gap-8 px-8 sm:px-20 text-center sm:text-left">
           {/* Conditional rendering based on the active section */}
           {activeSection === "about" && <section id="about"><AboutMe /></section>}
           {activeSection === "services" && <section id="services"><Services /></section>}
