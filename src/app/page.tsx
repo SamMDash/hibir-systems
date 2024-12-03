@@ -22,7 +22,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f7f7f7] to-[#e2e2e2] relative">
+    <div className="min-h-screen bg-gradient-to-b from-[#f7f7f7] to-[#e2e2e2] relative pt-24">
       <Header isShrunk={isShrunk} />
 
       <nav className="flex gap-8 justify-center p-4 bg-white shadow-md z-10 relative">
@@ -68,7 +68,7 @@ export default function Home() {
         </button>
       </nav>
 
-      <div className="flex flex-col gap-8 px-8 sm:px-20 text-center sm:text-left pt-24">
+      <div className="flex flex-col gap-8 px-8 sm:px-20 text-center sm:text-left pt-12">
         {/* Conditional rendering based on the active section */}
         {activeSection === "about" && (
           <section id="about" className="flex justify-center">
