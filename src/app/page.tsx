@@ -2,98 +2,122 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="grid grid-rows-[auto,1fr,auto] items-center justify-items-center min-h-screen p-8 gap-16 sm:p-20 bg-gradient-to-b from-[#f7f7f7] to-[#e2e2e2]">
+      <header className="flex flex-col gap-4 items-center">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          className="rounded-full shadow-lg"
+          src="/profile-pic.jpg" // Use your profile picture here
+          alt="Samuel Mengistu"
+          width={150}
+          height={150}
           priority
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+        <h1 className="text-3xl sm:text-4xl font-semibold text-gray-800 dark:text-white">
+          Samuel Mengistu
+        </h1>
+        <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300">
+          Software Developer | Founder of Hibir Systems
+        </p>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start text-center sm:text-left">
+        <section className="max-w-4xl w-full text-gray-700 dark:text-gray-200">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">About Me</h2>
+          <p className="text-lg">
+            Welcome to Hibir Systems
+
+            At Hibir Systems, we are dedicated to revolutionizing healthcare through innovative technology. Our mission is to bridge the gap between modern medicine and cutting-edge software solutions, improving both patient care and the capabilities of the medical industry.
+
+            I’m Samuel Mengistu, a passionate software developer with a focus on building efficient and scalable solutions. I specialize in web and mobile application development, and have a deep interest in creating user-friendly, high-performance applications. As the founder of Hibir Systems, I strive to provide cutting-edge software solutions that contribute to the healthcare field. My goal is to leverage technology to improve healthcare, making it more accessible, efficient, and impactful. Through intelligent, user-centric applications, we aim to transform healthcare services and empower the medical world to provide better care for everyone.
+          </p>
+        </section>
+
+        <section className="max-w-4xl w-full text-gray-700 dark:text-gray-200">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">My Services</h2>
+          <ul className="list-disc pl-6">
+            <li>Web & Mobile App Development</li>
+            <li>Software Architecture & Consulting</li>
+            <li>API Development and Integration</li>
+            <li>Cloud Solutions & DevOps</li>
+          </ul>
+        </section>
+
+        <section className="max-w-4xl w-full text-gray-700 dark:text-gray-200">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Technologies I Use</h2>
+          <div className="flex gap-6 flex-wrap">
+            <div className="flex items-center gap-2 text-lg">
+              <Image src="/nextjs-icon.png" alt="Next.js" width={40} height={40} />
+              <span>Next.js</span>
+            </div>
+            <div className="flex items-center gap-2 text-lg">
+              <Image src="/react-icon.png" alt="React" width={40} height={40} />
+              <span>React</span>
+            </div>
+            <div className="flex items-center gap-2 text-lg">
+              <Image src="/nodejs-icon.png" alt="Node.js" width={40} height={40} />
+              <span>Node.js</span>
+            </div>
+            <div className="flex items-center gap-2 text-lg">
+              <Image src="/tailwindcss-icon.png" alt="Tailwind CSS" width={40} height={40} />
+              <span>Tailwind CSS</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Hibir Medicos App Section */}
+        <section className="max-w-4xl w-full text-gray-700 dark:text-gray-200">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Hibir Medicos App</h2>
+          <p className="text-lg mb-4">
+            Hibir Medicos is an Android app I developed to improve healthcare accessibility. It includes essential medical calculators, growth charts, and decision support tools designed to assist healthcare professionals in delivering better care. The app aims to simplify everyday tasks for doctors, nurses, and healthcare providers, improving decision-making processes and streamlining medical workflows.
+          </p>
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://play.google.com/store/apps/details?id=com.hibir.medicos" // Replace with your actual download link if available
             target="_blank"
             rel="noopener noreferrer"
+            className="text-white bg-green-600 hover:bg-green-700 rounded-lg px-6 py-3"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            Download Hibir Medicos App
           </a>
+        </section>
+
+        <section className="max-w-4xl w-full text-gray-700 dark:text-gray-200">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Contact Me</h2>
+          <p className="text-lg mb-4">
+            Interested in collaborating or have a project in mind? Feel free to reach out!
+          </p>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:anbessm16@gmail.com"
+            className="text-white bg-blue-600 hover:bg-blue-700 rounded-lg px-6 py-3"
           >
-            Read our docs
+            Email Me
           </a>
-        </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
+
+      <footer className="flex justify-center items-center gap-4 py-8">
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          href="https://github.com/AnbessawM"
           target="_blank"
           rel="noopener noreferrer"
+          className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
+          <Image src="/github-icon.svg" alt="GitHub" width={24} height={24} />
         </a>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          href="https://www.linkedin.com/in/samuel-mengistu"
           target="_blank"
           rel="noopener noreferrer"
+          className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
+          <Image src="/linkedin-icon.svg" alt="LinkedIn" width={24} height={24} />
         </a>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          href="https://twitter.com/AnbessawM"
           target="_blank"
           rel="noopener noreferrer"
+          className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
+          <Image src="/twitter-icon.svg" alt="Twitter" width={24} height={24} />
         </a>
       </footer>
     </div>
