@@ -16,7 +16,7 @@ export default function Home() {
           Samuel Mengistu
         </h1>
         <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300">
-          Software Developer | Founder of Hibir Systems
+          Software Developer | Hibir Systems
         </p>
       </header>
 
