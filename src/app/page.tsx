@@ -91,7 +91,7 @@ export default function Home() {
             Hibir Medicos is an Android app I developed to improve healthcare accessibility. It includes essential medical calculators, growth charts, and decision support tools designed to assist healthcare professionals in delivering better care. The app aims to simplify everyday tasks for doctors, nurses, and healthcare providers, improving decision-making processes and streamlining medical workflows.
           </p>
           <a
-            href="https://play.google.com/store/apps/details?id=com.hibir.medicos" // Replace with your actual download link if available
+            href="https://t.me/HibirSystems/3"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white bg-green-600 hover:bg-green-700 rounded-lg px-6 py-3"
