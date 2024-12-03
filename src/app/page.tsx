@@ -6,7 +6,7 @@ export default function Home() {
       <header className="flex flex-col gap-4 items-center">
         <Image
           className="rounded-full shadow-lg"
-          src="/profile-pic.jpg" // Use your profile picture here
+          src="https://www.example.com/path/to/official/profile-pic.jpg" // Replace with official image URL
           alt="Samuel Mengistu"
           width={150}
           height={150}
@@ -46,19 +46,39 @@ export default function Home() {
           <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Technologies I Use</h2>
           <div className="flex gap-6 flex-wrap">
             <div className="flex items-center gap-2 text-lg">
-              <Image src="/nextjs-icon.png" alt="Next.js" width={40} height={40} />
+              <Image 
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/nextdotjs.svg" 
+                alt="Next.js" 
+                width={40} 
+                height={40} 
+              />
               <span>Next.js</span>
             </div>
             <div className="flex items-center gap-2 text-lg">
-              <Image src="/react-icon.png" alt="React" width={40} height={40} />
+              <Image 
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/react.svg" 
+                alt="React" 
+                width={40} 
+                height={40} 
+              />
               <span>React</span>
             </div>
             <div className="flex items-center gap-2 text-lg">
-              <Image src="/nodejs-icon.png" alt="Node.js" width={40} height={40} />
+              <Image 
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/node-dot-js.svg" 
+                alt="Node.js" 
+                width={40} 
+                height={40} 
+              />
               <span>Node.js</span>
             </div>
             <div className="flex items-center gap-2 text-lg">
-              <Image src="/tailwindcss-icon.png" alt="Tailwind CSS" width={40} height={40} />
+              <Image 
+                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tailwindcss.svg" 
+                alt="Tailwind CSS" 
+                width={40} 
+                height={40} 
+              />
               <span>Tailwind CSS</span>
             </div>
           </div>
@@ -101,7 +121,12 @@ export default function Home() {
           rel="noopener noreferrer"
           className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
         >
-          <Image src="/github-icon.svg" alt="GitHub" width={24} height={24} />
+          <Image 
+            src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" 
+            alt="GitHub" 
+            width={24} 
+            height={24} 
+          />
         </a>
         <a
           href="https://www.linkedin.com/in/samuel-mengistu"
@@ -109,7 +134,12 @@ export default function Home() {
           rel="noopener noreferrer"
           className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
         >
-          <Image src="/linkedin-icon.svg" alt="LinkedIn" width={24} height={24} />
+          <Image 
+            src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg" 
+            alt="LinkedIn" 
+            width={24} 
+            height={24} 
+          />
         </a>
         <a
           href="https://twitter.com/AnbessawM"
@@ -117,7 +147,12 @@ export default function Home() {
           rel="noopener noreferrer"
           className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
         >
-          <Image src="/twitter-icon.svg" alt="Twitter" width={24} height={24} />
+          <Image 
+            src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/twitter.svg" 
+            alt="Twitter" 
+            width={24} 
+            height={24} 
+          />
         </a>
       </footer>
     </div>
