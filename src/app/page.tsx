@@ -1,4 +1,4 @@
-"use client";
+"use client"; // Mark the file as client-side component
 
 import { useState } from "react";
 import Header from "./components/Header";
@@ -10,7 +10,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState<string>("");
+  const [activeSection, setActiveSection] = useState<string>("about");
 
   const handleNavClick = (section: string) => {
     setActiveSection(section);
@@ -80,21 +80,12 @@ export default function Home() {
       <div className="pt-24">
         <Header />
         <main className="flex flex-col gap-8 text-center sm:text-left">
-          <section id="about">
-            <AboutMe />
-          </section>
-          <section id="services">
-            <Services />
-          </section>
-          <section id="technologies">
-            <Technologies />
-          </section>
-          <section id="app">
-            <AppSection />
-          </section>
-          <section id="contact">
-            <Contact />
-          </section>
+          {/* Conditional rendering based on the active section */}
+          {activeSection === "about" && <section id="about"><AboutMe /></section>}
+          {activeSection === "services" && <section id="services"><Services /></section>}
+          {activeSection === "technologies" && <section id="technologies"><Technologies /></section>}
+          {activeSection === "app" && <section id="app"><AppSection /></section>}
+          {activeSection === "contact" && <section id="contact"><Contact /></section>}
         </main>
         <Footer />
       </div>
