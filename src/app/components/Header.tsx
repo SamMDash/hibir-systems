@@ -9,31 +9,37 @@ type HeaderProps = {
 const Header = ({ isShrunk }: HeaderProps) => {
   return (
     <header
-      className={`transition-all duration-500 ease-in-out flex flex-col gap-4 items-center ${
-        isShrunk ? "text-left absolute top-4 left-4" : "text-center"
+      className={`transition-all duration-500 ease-in-out ${
+        isShrunk
+          ? "absolute top-0 left-4 flex items-center gap-4" // Align to top left when shrunk
+          : "text-center flex flex-col gap-4 items-center pt-16"
       }`}
     >
-      <Image
-        className={`rounded-full shadow-lg transition-all duration-500 ease-in-out ${
+      <div
+        className={`transition-all duration-500 ease-in-out ${
           isShrunk ? "w-12 h-12" : "w-36 h-36"
         }`}
-        src="https://www.example.com/path/to/official/profile-pic.jpg" // Replace with official image URL
-        alt="Samuel Mengistu"
-        width={150}
-        height={150}
-        priority
-      />
+      >
+        <Image
+          className="rounded-full shadow-lg"
+          src="https://www.example.com/path/to/official/profile-pic.jpg" // Replace with official image URL
+          alt="Samuel Mengistu"
+          width={150}
+          height={150}
+          priority
+        />
+      </div>
       <h1
-        className={`text-3xl sm:text-4xl font-semibold text-gray-800 dark:text-white transition-all duration-500 ease-in-out ${
-          isShrunk ? "text-xl" : "text-3xl"
-        }`}
+        className={`transition-all duration-500 ease-in-out ${
+          isShrunk ? "text-xl" : "text-3xl sm:text-4xl"
+        } text-gray-800 dark:text-white`}
       >
         Samuel Mengistu
       </h1>
       <p
-        className={`text-lg sm:text-xl text-gray-600 dark:text-gray-300 transition-all duration-500 ease-in-out ${
-          isShrunk ? "text-sm" : "text-lg"
-        }`}
+        className={`transition-all duration-500 ease-in-out ${
+          isShrunk ? "text-sm" : "text-lg sm:text-xl"
+        } text-gray-600 dark:text-gray-300`}
       >
         Software Developer | Hibir Systems
       </p>

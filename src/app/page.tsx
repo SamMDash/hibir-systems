@@ -1,118 +1,98 @@
-"use client"; // Mark the file as client-side component
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "./components/Header";
 import AboutMe from "./components/AboutMe";
 import Services from "./components/Services";
 import Technologies from "./components/Technologies";
 import AppSection from "./components/AppSection";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState<string>("about");
-  const [isShrunk, setIsShrunk] = useState<boolean>(false);
+  const [activeSection, setActiveSection] = useState("about");
+  const [isShrunk, setIsShrunk] = useState(false);
 
-  // Detect section changes to trigger header animation
-  useEffect(() => {
-    if (activeSection === "about") {
-      setIsShrunk(false);
-    } else {
-      setIsShrunk(true);
-    }
-  }, [activeSection]);
-
-  const handleNavClick = (section: string) => {
+  const handleSectionChange = (section: string) => {
     setActiveSection(section);
+    if (section === "about") {
+      setIsShrunk(false); // Expand header back
+    } else {
+      setIsShrunk(true); // Shrink header
+    }
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-[#f7f7f7] to-[#e2e2e2]">
-      {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full bg-white shadow-lg z-50">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex justify-between items-center">
-            <h1
-              className={`text-2xl font-bold text-gray-800 dark:text-white transition-all duration-500 ease-in-out ${
-                isShrunk ? "text-xl absolute top-4 left-4" : "text-3xl"
-              }`}
-            >
-              Hibir Systems
-            </h1>
-            <ul className="flex space-x-6">
-              <li>
-                <a
-                  href="#about"
-                  onClick={() => handleNavClick("about")}
-                  className={`text-lg font-medium ${
-                    activeSection === "about" ? "text-green-600" : "text-gray-600"
-                  } hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
-                >
-                  About Me
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  onClick={() => handleNavClick("services")}
-                  className={`text-lg font-medium ${
-                    activeSection === "services" ? "text-green-600" : "text-gray-600"
-                  } hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#technologies"
-                  onClick={() => handleNavClick("technologies")}
-                  className={`text-lg font-medium ${
-                    activeSection === "technologies" ? "text-green-600" : "text-gray-600"
-                  } hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
-                >
-                  Technologies
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#app"
-                  onClick={() => handleNavClick("app")}
-                  className={`text-lg font-medium ${
-                    activeSection === "app" ? "text-green-600" : "text-gray-600"
-                  } hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
-                >
-                  Hibir Medicos
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  onClick={() => handleNavClick("contact")}
-                  className={`text-lg font-medium ${
-                    activeSection === "contact" ? "text-green-600" : "text-gray-600"
-                  } hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <div className="min-h-screen bg-gradient-to-b from-[#f7f7f7] to-[#e2e2e2] relative">
+      <Header isShrunk={isShrunk} />
+
+      <nav className="flex gap-8 justify-center p-4 bg-white shadow-md z-10 relative">
+        <button
+          onClick={() => handleSectionChange("about")}
+          className={`${
+            activeSection === "about" ? "font-bold" : ""
+          } text-lg`}
+        >
+          About Me
+        </button>
+        <button
+          onClick={() => handleSectionChange("services")}
+          className={`${
+            activeSection === "services" ? "font-bold" : ""
+          } text-lg`}
+        >
+          My Services
+        </button>
+        <button
+          onClick={() => handleSectionChange("technologies")}
+          className={`${
+            activeSection === "technologies" ? "font-bold" : ""
+          } text-lg`}
+        >
+          Technologies I Use
+        </button>
+        <button
+          onClick={() => handleSectionChange("appsection")}
+          className={`${
+            activeSection === "appsection" ? "font-bold" : ""
+          } text-lg`}
+        >
+          Hibir Medicos App
+        </button>
+        <button
+          onClick={() => handleSectionChange("contact")}
+          className={`${
+            activeSection === "contact" ? "font-bold" : ""
+          } text-lg`}
+        >
+          Contact Me
+        </button>
       </nav>
 
-      {/* Content */}
-      <div className="pt-24">
-        {/* Conditional rendering of header size */}
-        <Header isShrunk={isShrunk} />
-        <main className="flex flex-col gap-8 px-8 sm:px-20 text-center sm:text-left">
-          {/* Conditional rendering based on the active section */}
-          {activeSection === "about" && <section id="about"><AboutMe /></section>}
-          {activeSection === "services" && <section id="services"><Services /></section>}
-          {activeSection === "technologies" && <section id="technologies"><Technologies /></section>}
-          {activeSection === "app" && <section id="app"><AppSection /></section>}
-          {activeSection === "contact" && <section id="contact"><Contact /></section>}
-        </main>
-        <Footer />
+      <div className="flex flex-col gap-8 px-8 sm:px-20 text-center sm:text-left pt-24">
+        {/* Conditional rendering based on the active section */}
+        {activeSection === "about" && (
+          <section id="about" className="flex justify-center">
+            <AboutMe />
+          </section>
+        )}
+        {activeSection === "services" && (
+          <section id="services" className="flex justify-center">
+            <Services />
+          </section>
+        )}
+        {activeSection === "technologies" && (
+          <section id="technologies" className="flex justify-center">
+            <Technologies />
+          </section>
+        )}
+        {activeSection === "appsection" && (
+          <section id="appsection" className="flex justify-center">
+            <AppSection />
+          </section>
+        )}
+        {activeSection === "contact" && (
+          <section id="contact" className="flex justify-center">
+            <Contact />
+          </section>
+        )}
       </div>
     </div>
   );
