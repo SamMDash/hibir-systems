@@ -23,9 +23,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f7f7f7] to-[#e2e2e2] relative pt-24">
-      <Header isShrunk={isShrunk} />
-
-      <nav className="flex gap-8 justify-center p-4 bg-white shadow-md z-10 relative">
+      {/* Fixed Navbar */}
+      <nav className="flex gap-8 justify-center p-4 bg-white shadow-md fixed top-0 left-0 w-full z-10">
         <button
           onClick={() => handleSectionChange("about")}
           className={`${
@@ -68,7 +67,11 @@ export default function Home() {
         </button>
       </nav>
 
-      <div className="flex flex-col gap-8 px-8 sm:px-20 text-center sm:text-left pt-12">
+      {/* Shrinking Header */}
+      <Header isShrunk={isShrunk} />
+
+      {/* Content Section */}
+      <div className="flex flex-col gap-8 px-8 sm:px-20 text-center sm:text-left pt-24">
         {/* Conditional rendering based on the active section */}
         {activeSection === "about" && (
           <section id="about" className="flex justify-center">

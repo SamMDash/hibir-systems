@@ -11,7 +11,7 @@ const Header = ({ isShrunk }: HeaderProps) => {
     <header
       className={`transition-all duration-500 ease-in-out ${
         isShrunk
-          ? "absolute top-4 left-4 flex items-center gap-4 z-20"
+          ? "absolute top-16 left-4 flex items-center gap-4 z-20"
           : "relative flex flex-col gap-4 items-center pt-16 z-10"
       }`}
     >
