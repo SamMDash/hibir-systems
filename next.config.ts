@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    unoptimized: true, // Required for GitHub Pages compatibility
+    unoptimized: true,
   },
-  basePath: '/Hibir-Systems', // Ensure paths are correct for GitHub Pages
+  basePath: '/hibir-systems', // Ensure paths are correct for GitHub Pages
 };
