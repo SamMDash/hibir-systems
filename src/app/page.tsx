@@ -1,160 +1,101 @@
-import Image from "next/image";
+import { useState } from "react";
+import Header from "./components/Header";
+import AboutMe from "./components/AboutMe";
+import Services from "./components/Services";
+import Technologies from "./components/Technologies";
+import AppSection from "./components/AppSection";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 export default function Home() {
+  const [activeSection, setActiveSection] = useState<string>("");
+
+  const handleNavClick = (section: string) => {
+    setActiveSection(section);
+  };
+
   return (
-    <div className="grid grid-rows-[auto,1fr,auto] items-center justify-items-center min-h-screen p-8 gap-16 sm:p-20 bg-gradient-to-b from-[#f7f7f7] to-[#e2e2e2]">
-      <header className="flex flex-col gap-4 items-center">
-        <Image
-          className="rounded-full shadow-lg"
-          src="https://www.example.com/path/to/official/profile-pic.jpg" // Replace with official image URL
-          alt="Samuel Mengistu"
-          width={150}
-          height={150}
-          priority
-        />
-        <h1 className="text-3xl sm:text-4xl font-semibold text-gray-800 dark:text-white">
-          Samuel Mengistu
-        </h1>
-        <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300">
-          Software Developer | Hibir Systems
-        </p>
-      </header>
-
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start text-center sm:text-left">
-        <section className="max-w-4xl w-full text-gray-700 dark:text-gray-200">
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">About Me</h2>
-          <p className="text-lg">
-            Welcome to Hibir Systems
-
-            At Hibir Systems, we are dedicated to revolutionizing healthcare through innovative technology. Our mission is to bridge the gap between modern medicine and cutting-edge software solutions, improving both patient care and the capabilities of the medical industry.
-
-            I’m Samuel Mengistu, a passionate software developer with a focus on building efficient and scalable solutions. I specialize in web and mobile application development, and have a deep interest in creating user-friendly, high-performance applications. As the founder of Hibir Systems, I strive to provide cutting-edge software solutions that contribute to the healthcare field. My goal is to leverage technology to improve healthcare, making it more accessible, efficient, and impactful. Through intelligent, user-centric applications, we aim to transform healthcare services and empower the medical world to provide better care for everyone.
-          </p>
-        </section>
-
-        <section className="max-w-4xl w-full text-gray-700 dark:text-gray-200">
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">My Services</h2>
-          <ul className="list-disc pl-6">
-            <li>Web & Mobile App Development</li>
-            <li>Software Architecture & Consulting</li>
-            <li>API Development and Integration</li>
-            <li>Cloud Solutions & DevOps</li>
-          </ul>
-        </section>
-
-        <section className="max-w-4xl w-full text-gray-700 dark:text-gray-200">
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Technologies I Use</h2>
-          <div className="flex gap-6 flex-wrap">
-            <div className="flex items-center gap-2 text-lg">
-              <Image 
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/nextdotjs.svg" 
-                alt="Next.js" 
-                width={40} 
-                height={40} 
-              />
-              <span>Next.js</span>
-            </div>
-            <div className="flex items-center gap-2 text-lg">
-              <Image 
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/react.svg" 
-                alt="React" 
-                width={40} 
-                height={40} 
-              />
-              <span>React</span>
-            </div>
-            <div className="flex items-center gap-2 text-lg">
-              <Image 
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/node-dot-js.svg" 
-                alt="Node.js" 
-                width={40} 
-                height={40} 
-              />
-              <span>Node.js</span>
-            </div>
-            <div className="flex items-center gap-2 text-lg">
-              <Image 
-                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tailwindcss.svg" 
-                alt="Tailwind CSS" 
-                width={40} 
-                height={40} 
-              />
-              <span>Tailwind CSS</span>
-            </div>
+    <div className="relative min-h-screen bg-gradient-to-b from-[#f7f7f7] to-[#e2e2e2]">
+      {/* Navbar */}
+      <nav className="fixed top-0 left-0 w-full bg-white shadow-lg z-50">
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+              Hibir Systems
+            </h1>
+            <ul className="flex space-x-6">
+              <li>
+                <a
+                  href="#about"
+                  onClick={() => handleNavClick("about")}
+                  className={`text-lg font-medium ${activeSection === "about" ? "text-green-600" : "text-gray-600"} hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
+                >
+                  About Me
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  onClick={() => handleNavClick("services")}
+                  className={`text-lg font-medium ${activeSection === "services" ? "text-green-600" : "text-gray-600"} hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
+                >
+                  Services
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#technologies"
+                  onClick={() => handleNavClick("technologies")}
+                  className={`text-lg font-medium ${activeSection === "technologies" ? "text-green-600" : "text-gray-600"} hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
+                >
+                  Technologies
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#app"
+                  onClick={() => handleNavClick("app")}
+                  className={`text-lg font-medium ${activeSection === "app" ? "text-green-600" : "text-gray-600"} hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
+                >
+                  Hibir Medicos
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  onClick={() => handleNavClick("contact")}
+                  className={`text-lg font-medium ${activeSection === "contact" ? "text-green-600" : "text-gray-600"} hover:text-green-600 dark:text-gray-300 dark:hover:text-white`}
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
           </div>
-        </section>
+        </div>
+      </nav>
 
-        {/* Hibir Medicos App Section */}
-        <section className="max-w-4xl w-full text-gray-700 dark:text-gray-200">
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Hibir Medicos App</h2>
-          <p className="text-lg mb-4">
-            Hibir Medicos is an Android app I developed to improve healthcare accessibility. It includes essential medical calculators, growth charts, and decision support tools designed to assist healthcare professionals in delivering better care. The app aims to simplify everyday tasks for doctors, nurses, and healthcare providers, improving decision-making processes and streamlining medical workflows.
-          </p>
-          <a
-            href="https://t.me/HibirSystems/3"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white bg-green-600 hover:bg-green-700 rounded-lg px-6 py-3"
-          >
-            Download Hibir Medicos App
-          </a>
-        </section>
-
-        <section className="max-w-4xl w-full text-gray-700 dark:text-gray-200">
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Contact Me</h2>
-          <p className="text-lg mb-4">
-            Interested in collaborating or have a project in mind? Feel free to reach out!
-          </p>
-          <a
-            href="mailto:anbessm16@gmail.com"
-            className="text-white bg-blue-600 hover:bg-blue-700 rounded-lg px-6 py-3"
-          >
-            Email Me
-          </a>
-        </section>
-      </main>
-
-      <footer className="flex justify-center items-center gap-4 py-8">
-        <a
-          href="https://github.com/AnbessawM"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
-        >
-          <Image 
-            src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" 
-            alt="GitHub" 
-            width={24} 
-            height={24} 
-          />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/samuel-mengistu"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
-        >
-          <Image 
-            src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg" 
-            alt="LinkedIn" 
-            width={24} 
-            height={24} 
-          />
-        </a>
-        <a
-          href="https://twitter.com/AnbessawM"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
-        >
-          <Image 
-            src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/twitter.svg" 
-            alt="Twitter" 
-            width={24} 
-            height={24} 
-          />
-        </a>
-      </footer>
+      {/* Content */}
+      <div className="pt-24">
+        <Header />
+        <main className="flex flex-col gap-8 text-center sm:text-left">
+          <section id="about">
+            <AboutMe />
+          </section>
+          <section id="services">
+            <Services />
+          </section>
+          <section id="technologies">
+            <Technologies />
+          </section>
+          <section id="app">
+            <AppSection />
+          </section>
+          <section id="contact">
+            <Contact />
+          </section>
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
