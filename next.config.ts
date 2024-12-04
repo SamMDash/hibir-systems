@@ -2,5 +2,5 @@ module.exports = {
   images: {
     unoptimized: true,
   },
-  basePath: '/hibir-systems', // Ensure paths are correct for GitHub Pages
+  basePath: process.env.NODE_ENV === 'production' ? '/hibir-systems' : '',
 };

@@ -9,40 +9,43 @@ type HeaderProps = {
 const Header = ({ isShrunk }: HeaderProps) => {
   return (
     <header
-      className={`transition-all duration-500 ease-in-out ${
-        isShrunk
-          ? "absolute top-16 left-4 flex items-center gap-4 z-20"
-          : "relative flex flex-col gap-4 items-center pt-16 z-10"
+      className={`transition-all duration-1700 ease-in-out flex flex-col items-center ${
+        isShrunk ? "absolute top-16 left-4 z-20" : "pt-16 z-10"
       }`}
     >
+      {/* Profile Image */}
       <div
-        className={`transition-all duration-500 ease-in-out ${
-          isShrunk ? "w-12 h-12" : "w-36 h-36"
+        className={`rounded-full overflow-hidden bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 shadow-xl transform ${
+          isShrunk ? "w-20 h-20" : "w-36 h-36"
         }`}
       >
         <Image
-          className="rounded-full shadow-lg"
-          src="https://www.example.com/path/to/official/profile-pic.jpg" // Replace with official image URL
+          className="rounded-full object-cover"
+          src="/images/profile.jpg" // Replace with the actual path
           alt="Samuel Mengistu"
           width={150}
           height={150}
           priority
         />
       </div>
-      <h1
-        className={`transition-all duration-500 ease-in-out ${
-          isShrunk ? "text-xl" : "text-3xl sm:text-4xl"
-        } text-gray-800 dark:text-white`}
+
+      {/* Text */}
+      <div
+        className={`transition-all duration-1700 ease-in-out flex flex-col items-center ${
+          isShrunk ? "mt-2" : "mt-4"
+        }`}
       >
-        Samuel Mengistu
-      </h1>
-      <p
-        className={`transition-all duration-500 ease-in-out ${
-          isShrunk ? "text-sm" : "text-lg sm:text-xl"
-        } text-gray-600 dark:text-gray-300`}
-      >
-        Software Developer | Hibir Systems
-      </p>
+        <h1
+          className={`font-bold transition-all ${isShrunk ? "text-sm sm:text-base" : "text-3xl sm:text-4xl"} text-gray-800 dark:text-white`}
+        >
+          Samuel Mengistu
+        </h1>
+        <p
+          className={`transition-all ${isShrunk ? "text-xs sm:text-sm" : "text-lg sm:text-xl"} text-gray-600 dark:text-gray-300`}
+        >
+          Hibir Systems
+        </p>
+      </div>
     </header>
   );
 };
