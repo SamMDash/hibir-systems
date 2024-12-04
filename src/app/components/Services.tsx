@@ -1,7 +1,17 @@
 import { FaLaptopCode, FaCloud, FaCodeBranch, FaCogs } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 
-const ServiceCard = ({ icon, title, description, bgColor, delay }) => {
+// Define the type for ServiceCard props
+interface ServiceCardProps {
+  icon: JSX.Element;  // The icon will be a JSX element (React component)
+  title: string;
+  description: string;
+  bgColor: string;
+  delay: number;
+}
+
+
+const ServiceCard = ({ icon, title, description, bgColor, delay }: ServiceCardProps) => {
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
