@@ -31,6 +31,8 @@ export default function Home() {
             <Image
               src="images/logo.jpg"
               alt="Hibir Systems"
+              width={32}
+              height={32}
               className="w-full sm:w-80 rounded-full shadow-lg"
             />
           </div>
@@ -108,7 +110,7 @@ export default function Home() {
 
 
       {/* Main Content */}
-      <main className="pt-24 px-8 sm:px-12 lg:px-20 transition-all ease-in-out duration-300">
+      <main className="pt-24 lg:px-8 lg:px-20 transition-all ease-in-out duration-300">
         <div className="flex justify-center">
           {activeSection === "about" ? (
             <div className="w-full mb-16">
@@ -131,7 +133,7 @@ export default function Home() {
               </div>
 
               {/* Right 85% Main Content */}
-              <div className="w-full lg:w-[85%] ml-[15%] p-4">
+              <div className="w-full lg:w-[85%] lg:ml-[15%] lg:p-4">
                 <div className="max-w-7xl mx-auto">
                   {activeSection === "services" && (
                     <section id="services" className="w-full mb-20">

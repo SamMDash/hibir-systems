@@ -17,6 +17,8 @@ const AboutMe = () => {
         <Image
           src="images/logo.jpg"  // Placeholder image
           alt="Hibir Systems"
+          width={32}
+          height={32}
           className="w-full sm:w-80 rounded-lg shadow-lg"
         />
       </div>
