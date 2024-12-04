@@ -11,7 +11,8 @@ const Contact = () => {
   const [status, setStatus] = useState("");
 
   // Handle form input change
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+  //@typescript-eslint/no-explicit-any
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -19,7 +20,8 @@ const Contact = () => {
   };
 
   // Handle form submit
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  //@typescript-eslint/no-explicit-any
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
 
