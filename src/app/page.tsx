@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from 'next/image';
 import AboutMe from "./components/AboutMe";
 import Services from "./components/Services";
 import Header from "./components/Header";
@@ -27,7 +28,7 @@ export default function Home() {
         {/* Logo and Links */}
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-gray-300 dark:bg-gray-700 rounded-full flex justify-center items-center">
-            <img
+            <Image
               src="images/logo.jpg"
               alt="Hibir Systems"
               className="w-full sm:w-80 rounded-full shadow-lg"

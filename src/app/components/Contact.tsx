@@ -11,7 +11,7 @@ const Contact = () => {
   const [status, setStatus] = useState("");
 
   // Handle form input change
-  const handleChange = (e: any) => {
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -19,7 +19,7 @@ const Contact = () => {
   };
 
   // Handle form submit
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     setStatus("Sending...");
 

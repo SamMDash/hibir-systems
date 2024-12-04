@@ -1,3 +1,4 @@
+import Image from 'next/image';
 const AboutMe = () => {
   return (
     <section className="max-w-5xl w-full text-gray-700 dark:text-gray-200 mx-auto p-4 sm:p-8">
@@ -13,7 +14,7 @@ const AboutMe = () => {
 
       {/* Image or Visual Component (Placeholder) */}
       <div className="flex justify-center sm:justify-start mb-8">
-        <img
+        <Image
           src="images/logo.jpg"  // Placeholder image
           alt="Hibir Systems"
           className="w-full sm:w-80 rounded-lg shadow-lg"

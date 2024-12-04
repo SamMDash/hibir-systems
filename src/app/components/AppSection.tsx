@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const AppSection = () => {
   return (
     <section className="max-w-6xl w-full text-gray-700 dark:text-gray-200 py-12 px-6 sm:px-12">
