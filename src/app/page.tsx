@@ -127,7 +127,7 @@ export default function Home() {
                 {/* <div className="mt-6 text-gray-800 dark:text-gray-300">
                   {activeSection === "services" && <p>Explore our wide range of services to help grow your business!</p>}
                   {activeSection === "technologies" && <p>Technologies we use include React, Node.js, and more!</p>}
-                  {activeSection === "appsection" && <p>Our apps are designed to solve real-world problems efficiently.</p>}
+                  {activeSection === "apps" && <p>Our apps are designed to solve real-world problems efficiently.</p>}
                   {activeSection === "contact" && <p>We’d love to hear from you. Get in touch with us!</p>}
                 </div> */}
               </div>
@@ -145,8 +145,8 @@ export default function Home() {
                       <Technologies />
                     </section>
                   )}
-                  {activeSection === "appsection" && (
-                    <section id="appsection" className="w-full mb-20">
+                  {activeSection === "apps" && (
+                    <section id="apps" className="w-full mb-20">
                       <AppSection />
                     </section>
                   )}
