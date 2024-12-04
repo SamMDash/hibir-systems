@@ -53,7 +53,7 @@ export default function Home() {
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex gap-8">
-          {["about", "services", "technologies", "appsection", "contact"].map((section) => (
+          {["about", "services", "technologies", "apps", "contact"].map((section) => (
             <button
               key={section}
               onClick={() => handleSectionChange(section)}
@@ -92,7 +92,7 @@ export default function Home() {
                 ></path>
               </svg>
             </button>
-            {["about", "services", "technologies", "appsection", "contact"].map((section) => (
+            {["about", "services", "technologies", "apps", "contact"].map((section) => (
               <button
                 key={section}
                 onClick={() => handleSectionChange(section)}
