@@ -38,7 +38,7 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/hibir-systems.git
+   git clone https://github.com/SamMDash/hibir-systems.git
    cd hibir-systems
    ```
 
